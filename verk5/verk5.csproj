@@ -176,6 +176,7 @@
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Controllers\CommentController.cs" />
     <Compile Include="Models\Course.cs" />
+    <Compile Include="Models\CourseDTO.cs" />
     <Compile Include="Models\Lecture.cs" />
     <Compile Include="Models\LectureDTO.cs" />
     <Compile Include="Models\verk5Context.cs" />

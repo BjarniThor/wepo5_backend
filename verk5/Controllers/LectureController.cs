@@ -16,6 +16,12 @@ namespace verk5.Controllers
     {
         private verk5Context db = new verk5Context();
 
+        /// <summary>
+        /// Lecture mapper.
+        /// Notaðir til að leggja saman gagnagrunn og módel, smíða þannig DTO pattern
+        /// Er queryable til að hægt sé að nota með öðrum queries
+        /// </summary>
+        /// <returns></returns>
         private IQueryable<LectureDTO.Lecture> MapLectures()
         {
             var lectures = db.Lectures.Select(l => new LectureDTO.Lecture()

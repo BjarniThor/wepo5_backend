@@ -16,10 +16,32 @@ namespace verk5.Controllers
     {
         private verk5Context db = new verk5Context();
 
-        // GET api/Course
-        public IEnumerable<Course> GetCourses()
+        private IQueryable<CourseDTO.Course> MapCourses()
         {
-            return db.Courses.AsEnumerable();
+            var courses = db.Courses.Select(c => new CourseDTO.Course()
+                {
+                    CourseId = c.Id,
+                    Coursename = c.Coursename
+                });
+            if (courses == null)
+            {
+                throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.BadRequest));
+            }
+            return courses;
+        }
+
+        // GET api/Course
+        public CourseDTO GetCourses()
+        {
+            var courses = new CourseDTO()
+                {
+                    Courses = MapCourses().AsEnumerable()
+                };
+            if (courses == null)
+            {
+                throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.BadRequest));
+            }
+            return courses;
         }
 
         // GET api/Course/5
