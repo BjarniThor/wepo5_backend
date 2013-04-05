@@ -32,14 +32,12 @@ namespace verk5.Controllers
         }
 
         // GET api/Lecture
-        public IEnumerable<Lecture> GetLectures()
+        public LectureDTO GetLectures()
         {
-            //var lectures = new LectureDTO()
-            //    {
-            //        Lectures = MapLectures().AsEnumerable()
-            //    };
-
-            var lectures = db.Lectures.AsEnumerable();
+            var lectures = new LectureDTO()
+                {
+                    Lectures = MapLectures().AsEnumerable()
+                };
 
             if (lectures == null)
             {
