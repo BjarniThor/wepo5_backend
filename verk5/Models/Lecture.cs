@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Newtonsoft.Json;
 
 namespace verk5.Models
 {
@@ -12,5 +13,7 @@ namespace verk5.Models
         public int CourseId { get; set; }
 
         public Course Course { get; set; }
+        [JsonIgnore]
+        public ICollection<Video> Videos { get; set; } 
     }
 }

@@ -16,11 +16,10 @@ namespace verk5
             );
 
             // Added for returning JSON code instead of XML
-            var json = config.Formatters.JsonFormatter;
-            json.SerializerSettings.PreserveReferencesHandling =
-                Newtonsoft.Json.PreserveReferencesHandling.Objects;
-
             config.Formatters.Remove(config.Formatters.XmlFormatter);
+
+            config = GlobalConfiguration.Configuration;
+            config.Formatters.Insert(0, new JsonpMediaTypeFormatter());
         }
     }
 }

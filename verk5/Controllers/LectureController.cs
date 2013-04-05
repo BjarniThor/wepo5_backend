@@ -16,23 +16,64 @@ namespace verk5.Controllers
     {
         private verk5Context db = new verk5Context();
 
+        private IQueryable<LectureDTO.Lecture> MapLectures()
+        {
+            var lectures = db.Lectures.Select(l => new LectureDTO.Lecture()
+                {
+                    LectureId = l.Id,
+                    CourseId = l.CourseId,
+                    Lecturename = l.Lecturename
+                });
+            if (lectures == null)
+            {
+                throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.BadRequest));
+            }
+            return lectures;
+        }
+
         // GET api/Lecture
         public IEnumerable<Lecture> GetLectures()
         {
-            var lectures = db.Lectures.Include(l => l.Course);
-            return lectures.AsEnumerable();
+            //var lectures = new LectureDTO()
+            //    {
+            //        Lectures = MapLectures().AsEnumerable()
+            //    };
+
+            var lectures = db.Lectures.AsEnumerable();
+
+            if (lectures == null)
+            {
+                throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound));
+            }
+            return lectures;
         }
 
         // GET api/Lecture/5
-        public Lecture GetLecture(int id)
+        public LectureDTO GetLecture(int id)
         {
-            Lecture lecture = db.Lectures.Find(id);
+            var lecture = db.Lectures.Include("Videos.Lecture")
+                                .First(l => l.Id == id);
             if (lecture == null)
             {
                 throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound));
             }
 
-            return lecture;
+            return new LectureDTO()
+                {
+                    Lectures = from l in lecture.Videos
+                               select new LectureDTO.Lecture()
+                                   {
+                                       LectureId = l.Lecture.Id,
+                                       Lecturename = l.Lecture.Lecturename
+                                   },
+                    Videos = from v in lecture.Videos
+                             select new Video()
+                                 {
+                                     Id = v.Id,
+                                     Name = v.Name,
+                                     Url = v.Url
+                                 }
+                };
         }
 
         // PUT api/Lecture/5
