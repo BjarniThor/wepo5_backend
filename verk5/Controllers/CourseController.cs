@@ -31,13 +31,13 @@ namespace verk5.Controllers
         }
 
         // GET api/Course
-        public IEnumerable<Course> GetCourses()
+        public CourseDTO GetCourses()
         {
-            var courses = db.Courses.AsEnumerable();
-            //var courses = new CourseDTO()
-            //    {
-            //        Courses = MapCourses().AsEnumerable()
-            //    };
+            //var courses = db.Courses.AsEnumerable();
+            var courses = new CourseDTO()
+                {
+                    Courses = MapCourses().AsEnumerable()
+                };
             if (courses == null)
             {
                 throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.BadRequest));
