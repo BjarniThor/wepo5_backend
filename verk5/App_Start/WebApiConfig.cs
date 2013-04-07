@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using WebMatrix.WebData;
 
 namespace verk5
 {
@@ -20,6 +21,8 @@ namespace verk5
 
             config = GlobalConfiguration.Configuration;
             config.Formatters.Insert(0, new JsonpMediaTypeFormatter());
+
+            WebSecurity.InitializeDatabaseConnection("DefaultConnection", "UserProfile", "UserId", "UserName", autoCreateTables: false);
         }
     }
 }

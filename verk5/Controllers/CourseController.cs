@@ -46,6 +46,11 @@ namespace verk5.Controllers
         }
 
         // GET api/Course/5
+        /// <summary>
+        /// Not fully implemented since not really needed
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public Course GetCourse(int id)
         {
             Course course = db.Courses.Find(id);
@@ -82,6 +87,7 @@ namespace verk5.Controllers
         }
 
         // POST api/Course
+        [Authorize(Roles = "Teacher")]
         public HttpResponseMessage PostCourse(Course course)
         {
             if (ModelState.IsValid)
