@@ -19,9 +19,9 @@ namespace verk5.Controllers
     {
         private verk5Context db = new verk5Context();
 
-        [HttpGet]
+        [HttpPost]
         ///Shitty fix for user authentication
-        public LoginUserRolesDTO.LoginUserRoles GetLogin(LoginUserRoles lur)
+        public LoginUserRolesDTO.LoginUserRoles PostLogin(LoginUserRoles lur)
         {
             if (WebSecurity.Login(lur.Username, lur.Password))
             {
