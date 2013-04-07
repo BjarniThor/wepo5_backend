@@ -6,6 +6,7 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using MvcApp.Handlers;
 
 namespace verk5
 {
@@ -24,16 +25,18 @@ namespace verk5
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AuthConfig.RegisterAuth();
 
+            GlobalConfiguration.Configuration.MessageHandlers.Add(new CorsHandler());
+
             System.Data.Entity.Database.SetInitializer(new System.Data.Entity.DropCreateDatabaseIfModelChanges<verk5.Models.verk5Context>());
         }
 
-        protected void Application_BeginRequest(object sender, EventArgs e)
-        {
-            //This is to allow cross domain ajax requests. 
-            //http://www.cypressnorth.com/blog/programming/cross-domain-ajax-request-with-json-response-for-iefirefoxchrome-safari-jquery/
-            HttpContext.Current.Response.AddHeader("Access-Control-Allow-Origin", "*");
-            HttpContext.Current.Response.AddHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-            HttpContext.Current.Response.AddHeader("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT");
-        }
+        //protected void Application_BeginRequest(object sender, EventArgs e)
+        //{
+        //    //This is to allow cross domain ajax requests. 
+        //    //http://www.cypressnorth.com/blog/programming/cross-domain-ajax-request-with-json-response-for-iefirefoxchrome-safari-jquery/
+        //    HttpContext.Current.Response.AddHeader("Access-Control-Allow-Origin", "*");
+        //    HttpContext.Current.Response.AddHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+        //    HttpContext.Current.Response.AddHeader("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT");
+        //}
     }
 }

@@ -172,6 +172,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\CorsHandler.cs" />
     <Compile Include="Migrations\201304071252130_CommentAddedToLecture.cs" />
     <Compile Include="Migrations\201304071252130_CommentAddedToLecture.Designer.cs">
       <DependentUpon>201304071252130_CommentAddedToLecture.cs</DependentUpon>
