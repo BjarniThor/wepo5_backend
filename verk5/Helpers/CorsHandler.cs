@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Threading;
 using System.Net;
 
-namespace MvcApp.Handlers
+namespace MvcApp.Helpers
 {
     public class CorsHandler : DelegatingHandler
     {
