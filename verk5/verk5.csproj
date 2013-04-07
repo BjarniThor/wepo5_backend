@@ -172,10 +172,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201304071252130_CommentAddedToLecture.cs" />
+    <Compile Include="Migrations\201304071252130_CommentAddedToLecture.Designer.cs">
+      <DependentUpon>201304071252130_CommentAddedToLecture.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Controllers\CommentController.cs" />
+    <Compile Include="Models\CommentDTO.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\CourseDTO.cs" />
     <Compile Include="Models\Lecture.cs" />
@@ -303,6 +308,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201304071252130_CommentAddedToLecture.resx">
+      <DependentUpon>201304071252130_CommentAddedToLecture.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

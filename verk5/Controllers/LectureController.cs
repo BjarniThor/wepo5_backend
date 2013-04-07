@@ -55,7 +55,7 @@ namespace verk5.Controllers
         // GET api/Lecture/5
         public LectureDTO GetLecture(int id)
         {
-            var lecture = db.Lectures.Include("Videos.Lecture")
+            var lecture = db.Lectures.Include("Videos.Lecture.Comments")
                                 .First(l => l.Id == id);
             if (lecture == null)
             {
@@ -76,7 +76,13 @@ namespace verk5.Controllers
                                      Id = v.Id,
                                      Name = v.Name,
                                      Url = v.Url
-                                 }
+                                 },
+                    Comments = from c in lecture.Comments
+                               select new Comment()
+                                   {
+                                       CommentText = c.CommentText,
+                                       Commenter = c.Commenter                                       
+                                   }
                 };
         }
 

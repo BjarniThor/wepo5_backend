@@ -100,12 +100,21 @@ namespace verk5.Migrations
                             CommentText = "This is comment 1",
                             Lecture = lecture[0],
                             LectureId = lecture[0].Id,
+                            Commenter = "dabs"
                         },
                     new Comment
                         {
                             CommentText = "This is comment 2",
                             Lecture = lecture[1],
                             LectureId = lecture[1].Id,
+                            Commenter = "bibz"
+                        },
+                    new Comment
+                        {
+                            CommentText = "This is comment 3",
+                            Lecture = lecture[0],
+                            LectureId = lecture[0].Id,
+                            Commenter = "bibz"
                         }
                 };
             comment.ForEach(c => ctx.Comments.Add(c));

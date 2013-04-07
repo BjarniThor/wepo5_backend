@@ -14,6 +14,8 @@ namespace verk5.Models
 
         public Course Course { get; set; }
         [JsonIgnore]
-        public ICollection<Video> Videos { get; set; } 
+        public ICollection<Video> Videos { get; set; }
+        [JsonIgnore]
+        public ICollection<Comment> Comments { get; set; } 
     }
 }

@@ -16,6 +16,7 @@ namespace verk5.Models
             
         }
         public IEnumerable<Lecture> Lectures { get; set; } 
-        public IEnumerable<Video> Videos { get; set; } 
+        public IEnumerable<Video> Videos { get; set; }
+        public IEnumerable<Comment> Comments { get; set; } 
     }
 }
