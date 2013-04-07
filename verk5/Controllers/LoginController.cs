@@ -19,12 +19,6 @@ namespace verk5.Controllers
     {
         private verk5Context db = new verk5Context();
 
-        public IEnumerable<UserProfile> GetUserProfiles()
-        {
-            var result = db.UserProfiles.AsEnumerable();
-            return result;
-        }
-
         [HttpPost]
         ///Shitty fix for user authentication
         public LoginUserRolesDTO.LoginUserRoles PostLogin(LoginUserRoles lur)

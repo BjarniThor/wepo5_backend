@@ -176,6 +176,10 @@
     <Compile Include="Migrations\201304071252130_CommentAddedToLecture.Designer.cs">
       <DependentUpon>201304071252130_CommentAddedToLecture.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201304071336306_SecondMigration.cs" />
+    <Compile Include="Migrations\201304071336306_SecondMigration.Designer.cs">
+      <DependentUpon>201304071336306_SecondMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Comment.cs" />
@@ -312,6 +316,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201304071252130_CommentAddedToLecture.resx">
       <DependentUpon>201304071252130_CommentAddedToLecture.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201304071336306_SecondMigration.resx">
+      <DependentUpon>201304071336306_SecondMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
