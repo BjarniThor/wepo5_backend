@@ -8,6 +8,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web;
 using System.Web.Http;
+using Verkvaki.Helpers;
 
 namespace verk5.Models
 {
@@ -59,6 +60,7 @@ namespace verk5.Models
         }
 
         // POST api/Comment
+        [AllowCrossSiteJson]
         public HttpResponseMessage PostComment(Comment comment)
         {
             if (ModelState.IsValid)

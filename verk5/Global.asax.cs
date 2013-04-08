@@ -6,7 +6,6 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
-using verk5.Helpers;
 
 namespace verk5
 {
@@ -25,7 +24,7 @@ namespace verk5
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AuthConfig.RegisterAuth();
 
-            GlobalConfiguration.Configuration.MessageHandlers.Add(new CorsHandler()); 
+            //GlobalConfiguration.Configuration.MessageHandlers.Add(new CorsHandler()); 
 
             System.Data.Entity.Database.SetInitializer(new System.Data.Entity.DropCreateDatabaseIfModelChanges<verk5.Models.verk5Context>());
         }

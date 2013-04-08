@@ -11,10 +11,12 @@ using System.Web.Http;
 using System.Web.Security;
 using WebMatrix.WebData;
 using verk5.Models;
+using verk5.Filters;
+using System.Web.Http.Controllers;
 
 namespace verk5.Controllers
 {
-    
+
     public class LoginController : ApiController
     {
         private verk5Context db = new verk5Context();
