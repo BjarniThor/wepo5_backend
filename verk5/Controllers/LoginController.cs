@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.Web;
 using System.Web.Http;
 using System.Web.Security;
+using Verkvaki.Helpers;
 using WebMatrix.WebData;
 using verk5.Models;
 using verk5.Filters;
@@ -22,6 +23,7 @@ namespace verk5.Controllers
         private verk5Context db = new verk5Context();
 
         [HttpPost]
+        [AllowCrossSiteJson]
         ///Shitty fix for user authentication
         public LoginUserRolesDTO.LoginUserRoles PostLogin(LoginUserRoles lur)
         {
