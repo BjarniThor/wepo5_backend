@@ -32,12 +32,18 @@ namespace verk5.Controllers
                 return new LoginUserRolesDTO.LoginUserRoles()
                     {
                         Username = lur.Username,
-                        Role = Roles.GetRolesForUser(lur.Username)
+                        Role = Roles.GetRolesForUser(lur.Username),
+                        StatusCode = HttpStatusCode.OK.ToString()
                     };
             }
             else
             {
-                throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.BadRequest));
+                return new LoginUserRolesDTO.LoginUserRoles()
+                {
+                    Username = null,
+                    Role = null,
+                    StatusCode = HttpStatusCode.NotFound.ToString()
+                };
             }
 
         }

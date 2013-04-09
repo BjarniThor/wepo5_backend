@@ -11,6 +11,7 @@ namespace verk5.Models
         {
             public String Username { get; set; }
             public string[] Role { get; set; }
+            public String StatusCode { get; set; }
         }
     }
     
