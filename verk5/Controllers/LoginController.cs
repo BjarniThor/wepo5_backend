@@ -23,7 +23,7 @@ namespace verk5.Controllers
         private verk5Context db = new verk5Context();
 
         [HttpPost]
-        //[AllowCrossSiteJson]
+        [AllowCrossSiteJson]
         ///Shitty fix for user authentication
         public LoginUserRolesDTO.LoginUserRoles PostLogin(LoginUserRoles lur)
         {
