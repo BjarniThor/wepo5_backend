@@ -113,6 +113,7 @@ namespace verk5.Controllers
         }
 
         // POST api/Lecture
+        [HttpPost]
         [AllowCrossSiteJson]
         public HttpResponseMessage PostLecture(Lecture lecture)
         {
