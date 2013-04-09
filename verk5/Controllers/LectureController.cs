@@ -8,6 +8,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web;
 using System.Web.Http;
+using Verkvaki.Helpers;
 using verk5.Models;
 
 namespace verk5.Controllers
@@ -87,6 +88,7 @@ namespace verk5.Controllers
         }
 
         // PUT api/Lecture/5
+        [AllowCrossSiteJson]
         public HttpResponseMessage PutLecture(int id, Lecture lecture)
         {
             if (ModelState.IsValid && id == lecture.Id)
@@ -111,6 +113,7 @@ namespace verk5.Controllers
         }
 
         // POST api/Lecture
+        [AllowCrossSiteJson]
         public HttpResponseMessage PostLecture(Lecture lecture)
         {
             if (ModelState.IsValid)
