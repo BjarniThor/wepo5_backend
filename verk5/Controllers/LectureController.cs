@@ -88,7 +88,7 @@ namespace verk5.Controllers
         }
 
         // PUT api/Lecture/5
-        [AllowCrossSiteJson]
+        //[AllowCrossSiteJson]
         public HttpResponseMessage PutLecture(int id, Lecture lecture)
         {
             if (ModelState.IsValid && id == lecture.Id)
@@ -114,7 +114,7 @@ namespace verk5.Controllers
 
         // POST api/Lecture
         [HttpPost]
-        [AllowCrossSiteJson]
+        //[AllowCrossSiteJson]
         public HttpResponseMessage PostLecture(Lecture lecture)
         {
             if (ModelState.IsValid)

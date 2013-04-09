@@ -60,7 +60,7 @@ namespace verk5.Models
         }
 
         // POST api/Comment
-        [AllowCrossSiteJson]
+        //[AllowCrossSiteJson]
         public HttpResponseMessage PostComment(Comment comment)
         {
             if (ModelState.IsValid)

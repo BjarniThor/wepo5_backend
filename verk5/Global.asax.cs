@@ -29,13 +29,13 @@ namespace verk5
             System.Data.Entity.Database.SetInitializer(new System.Data.Entity.DropCreateDatabaseIfModelChanges<verk5.Models.verk5Context>());
         }
         //[AlloCrossSiteJson] Takes care of this (up to ap point)
-        //protected void Application_BeginRequest(object sender, EventArgs e)
-        //{
-        //    //This is to allow cross domain ajax requests. 
-        //    //http://www.cypressnorth.com/blog/programming/cross-domain-ajax-request-with-json-response-for-iefirefoxchrome-safari-jquery/
-        //    HttpContext.Current.Response.AddHeader("Access-Control-Allow-Origin", "*");
-        //    HttpContext.Current.Response.AddHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-        //    HttpContext.Current.Response.AddHeader("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT");
-        //}
+        protected void Application_BeginRequest(object sender, EventArgs e)
+        {
+            //This is to allow cross domain ajax requests. 
+            //http://www.cypressnorth.com/blog/programming/cross-domain-ajax-request-with-json-response-for-iefirefoxchrome-safari-jquery/
+            HttpContext.Current.Response.AddHeader("Access-Control-Allow-Origin", "*");
+            HttpContext.Current.Response.AddHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+            HttpContext.Current.Response.AddHeader("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT");
+        }
     }
 }
