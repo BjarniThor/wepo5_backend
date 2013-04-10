@@ -61,6 +61,7 @@ namespace verk5.Controllers
         }
 
         // POST api/Video
+        [HttpPost]
         [AllowCrossSiteJson]
         public HttpResponseMessage PostVideo(Video video)
         {
