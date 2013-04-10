@@ -8,6 +8,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web;
 using System.Web.Http;
+using Verkvaki.Helpers;
 using verk5.Models;
 
 namespace verk5.Controllers
@@ -60,6 +61,7 @@ namespace verk5.Controllers
         }
 
         // POST api/Video
+        [AllowCrossSiteJson]
         public HttpResponseMessage PostVideo(Video video)
         {
             if (ModelState.IsValid)
